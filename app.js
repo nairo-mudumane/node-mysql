@@ -17,8 +17,8 @@ connection.connect(function (err) {
 
 connection.query('SELECT * FROM user_list', function (err, rows, fields) {
   if (!err) {
-    console.log('Resultado: ', rows);
+    return console.log('Resultado: ', rows);
   } else {
-    console.log('Erro ao realizar a consulta');
+    return console.log('Erro ao realizar a consulta');
   }
 });
