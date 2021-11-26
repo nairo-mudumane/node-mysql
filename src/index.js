@@ -1,8 +1,11 @@
 const express = require('express');
-const app = express();
+const App = express();
 const port = process.env.PORT || 8080;
-const routes = require('./routes/');
+const cors = require('cors');
 
-app.use(routes);
+App.use(cors());
+App.use(express.urlencoded({ extended: false }));
+App.use(express.json());
+require('./routes/')(App);
 
-app.listen(port, console.log(`listening on: ${port}`));
+App.listen(port, console.log(`listening on: ${port}`));

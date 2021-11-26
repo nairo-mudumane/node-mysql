@@ -1,5 +1,12 @@
-const router = require('express').Router();
+const UserRoutes = require('./UserRoutes');
 
-router.get('/', (req, res) => res.json({ success: true }));
+module.exports = (App) => {
+  UserRoutes(App);
 
-module.exports = router;
+  App.get('/', (req, res) => {
+    res.status(404).send('No body returned for response');
+  });
+  App.get('/*', (req, res) => {
+    res.status(404).redirect('/');
+  });
+};
