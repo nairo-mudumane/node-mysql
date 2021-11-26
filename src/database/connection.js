@@ -1,0 +1,10 @@
+const Sequelize = require('sequelize');
+const database = process.env.DATABASE;
+const user = process.env.USERNAME;
+const password = process.env.PASSWORD;
+const host = process.env.HOST;
+const dialect = process.env.DIALECT;
+
+const connection = new Sequelize(database, user, password, { host, dialect });
+
+module.exports = connection;

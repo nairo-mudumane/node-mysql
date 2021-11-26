@@ -1,3 +1,4 @@
+const connection = require('../database/connection');
 const responseModel = require('./ResponseModel').ResponseModel;
 const response = { ...responseModel };
 
@@ -6,6 +7,6 @@ exports.login = async (req, res) => {
 };
 
 exports.create = async (req, res) => {
-  response['data'] = [...response['data'], 'fruta', 'limao'];
+  const { username, password } = req.body;
   return res.status(201).json(response);
 };
