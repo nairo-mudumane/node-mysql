@@ -1,24 +1,11 @@
-// connecting to mysql
-const mysql = require('mysql');
-const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'rootNairo',
-  password: '',
-  database: 'teste_mysql_node',
-});
+const express = require('express');
+const bodyParser = require('body-parser');
+const port = process.env.PORT || 8080;
+// const mysql = require('mysql')
+// const app =express();
 
-connection.connect(function (err) {
-  if (err) {
-    console.error('error connecting: ' + err.stack);
-    return;
-  }
-  console.log('connected as id ' + connection.threadId);
-});
+// app.use(bodyParser.urlenconded({extend:false}));
+// app.use(bodyParser.json());
 
-connection.query('SELECT * FROM user_list', function (err, rows, fields) {
-  if (!err) {
-    console.log('Resultado: ', rows);
-  } else {
-    console.log('Erro ao realizar a consulta');
-  }
-});
+
+app.listen(port,()=>console.log(`listening on ${port}`))
